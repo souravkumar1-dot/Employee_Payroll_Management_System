@@ -1,52 +1,75 @@
+// Abstraction + Encapsulation
 abstract class Employee {
-    String name;
-    int id;
- Employee(String name, int id) {
+    private String name;
+    private int id;
+    Employee(String name, int id) {
         this.name = name;
         this.id = id;
     }
-    abstract double calculateSalary();
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+    abstract double calculateSalary(){
     void display() {
-        System.out.println("Name: " + name);
-        System.out.println("ID: " + id);
-        System.out.println("Salary: " + calculateSalary());
+        System.out.println("Employee Name : " + getName());
+        System.out.println("Employee ID   : " + getId());
+        System.out.println("Salary        : " + calculateSalary());
     }
 }
 class FullTimeEmployee extends Employee {
-    double baseSalary;
-    double bonus;
-
-    FullTimeEmployee(String name, int id, double baseSalary, double bonus) {
+    private double baseSalary;
+    private double bonus;
+    FullTimeEmployee(String name, int id, double baseSalary) {
+        super(name, id);
+        this.baseSalary = baseSalary;
+        this.bonus = 0;
+    }
+      FullTimeEmployee(String name, int id, double baseSalary, double bonus) {
         super(name, id);
         this.baseSalary = baseSalary;
         this.bonus = bonus;
     }
-
     @Override
     double calculateSalary() {
         return baseSalary + bonus;
     }
 }
 class PartTimeEmployee extends Employee {
-    int hours;
-    double rate;
-
-    PartTimeEmployee(String name, int id, int hours, double rate) {
+    private int hoursWorked;
+    private double hourlyRate;
+     PartTimeEmployee(String name, int id, int hoursWorked, double hourlyRate) {
         super(name, id);
-        this.hours = hours;
-        this.rate = rate;
+        this.hoursWorked = hoursWorked;
+        this.hourlyRate = hourlyRate;
+    }
+    @Override
+    double calculateSalary() {
+        return hoursWorked * hourlyRate;
+    }
+}
+class Manager extends FullTimeEmployee {
+    private double incentive;
+     Manager(String name, int id, double baseSalary, double bonus, double incentive) {
+        super(name, id, baseSalary, bonus);
+        this.incentive = incentive;
     }
    @Override
     double calculateSalary() {
-        return hours * rate;
+        return super.calculateSalary() + incentive;
     }
 }
 public class Main {
     public static void main(String[] args) {
-        Employee e1 = new FullTimeEmployee("John Doe", 101, 5000, 1200);
-        Employee e2 = new PartTimeEmployee("Jane Smith", 102, 6, 200);
-        e1.display();
-        System.out.println();
-        e2.display();
+        Employee emp1 = new FullTimeEmployee("John", 101, 50000, 5000);
+        Employee emp2 = new PartTimeEmployee("Jane", 102, 6, 500);
+        Employee employees[] = {emp1, emp2};
+          for (Employee e : employees) {
+            e.display();
+            System.out.println("");
+        }
     }
 }
