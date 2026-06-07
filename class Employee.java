@@ -1,4 +1,3 @@
-// Abstraction + Encapsulation
 abstract class Employee {
     private String name;
     private int id;
@@ -69,7 +68,7 @@ public class Main {
         Employee employees[] = {emp1, emp2};
           for (Employee e : employees) {
             e.display();
-            System.out.println("");
+            System.out.println(" ");
         }
     }
 }
