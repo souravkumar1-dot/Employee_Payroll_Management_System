@@ -112,4 +112,42 @@ Salary        : 3000.0
 
 ## 🧠 OOP Concepts Demonstrated
 
-| O
+| OOP Concept             | Implementation                                        |
+| ----------------------- | ----------------------------------------------------- |
+| Abstraction             | Abstract `Employee` class                             |
+| Encapsulation           | Private fields and getter methods                     |
+| Inheritance             | `FullTimeEmployee`, `PartTimeEmployee`, and `Manager` |
+| Polymorphism            | `Employee` references and overridden methods          |
+| Method Overriding       | `calculateSalary()`                                   |
+| Constructor Overloading | Multiple `FullTimeEmployee` constructors              |
+
+## 🎯 Learning Outcomes
+
+After completing this project, you will understand how to:
+
+* Design an abstract class in Java.
+* Implement inheritance between classes.
+* Use method overriding to provide specialized behavior.
+* Apply runtime polymorphism.
+* Implement encapsulation using private fields and getter methods.
+* Calculate salaries using different employee compensation structures.
+* Organize a Java program using OOP principles.
+
+## 🔮 Future Improvements
+
+* Add user input to enter employee details dynamically.
+* Include additional employee types.
+* Implement tax and deduction calculations.
+* Store employee records using a database.
+* Develop a graphical user interface (GUI).
+* Add functionality to update and search employee records.
+
+## 👨‍💻 Author
+
+**Sourav Kumar**
+
+B.Tech Computer Science Engineering (Artificial Intelligence and Machine Learning)
+
+## 📄 License
+
+This project is available for educational and learning purposes. You may use and modify the code to practice Java programming and Object-Oriented Programming concepts.
